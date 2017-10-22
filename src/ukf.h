@@ -82,7 +82,7 @@ public:
    * ProcessMeasurement
    * @param meas_package The latest measurement data of either radar or laser
    */
-  void ProcessMeasurement(MeasurementPackage meas_package);
+  void ProcessMeasurement(MeasurementPackage meas_pack);
 
   /**
    * Prediction Predicts sigma points, the state, and the state covariance
@@ -95,13 +95,19 @@ public:
    * Updates the state and the state covariance matrix using a laser measurement
    * @param meas_package The measurement at k+1
    */
-  void UpdateLidar(MeasurementPackage meas_package);
+  void UpdateLidar(MeasurementPackage meas_pack);
 
   /**
    * Updates the state and the state covariance matrix using a radar measurement
    * @param meas_package The measurement at k+1
    */
-  void UpdateRadar(MeasurementPackage meas_package);
+  void UpdateRadar(MeasurementPackage meas_pack);
+
+  void InitLidar(MeasurementPackage meas_pack);
+
+  void InitRadar(MeasurementPackage meas_pack);
+
+  void UpdateUKF(MeasurementPackage meas_pack, MatrixXd Zsig, MatrixXd R);
 };
 
 #endif /* UKF_H */
