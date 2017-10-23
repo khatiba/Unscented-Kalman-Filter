@@ -107,7 +107,7 @@ public:
 
   void InitRadar(MeasurementPackage meas_pack);
 
-  void UpdateUKF(MeasurementPackage meas_pack, MatrixXd Zsig, MatrixXd R);
+  double UpdateUKF(MeasurementPackage meas_pack, MatrixXd Zsig, MatrixXd R);
 };
 
 #endif /* UKF_H */
